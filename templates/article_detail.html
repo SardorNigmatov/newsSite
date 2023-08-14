@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="article-entry">
+    <h2>{{object.title }}</h2>
+    <p>{{ object.author }} | {{object.data}} </p>
+       {% if object.photo %}
+    <img src="{{ object.photo.url }}" alt="Bu yerda rasm bor">
+    {% endif %}
+    <p>{{ object.body }}</p>
+</div>
+<p>
+    <a href="{% url 'article_edit' object.pk %}">Tahrirlash</a>
+    <a href="{% url 'article_delete' object.pk %}">O'chirish</a>
+    <p><a href="{% url 'article_list' %}">Barcha maqolalar</a></p>
+
+{% endblock content %}
