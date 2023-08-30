@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-u-x%kxc^s!xc=t^l6morursk5xqs_3b@u#mvx+x##fr&8w4x6f
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['educationonline.uz']
 
 
 # Application definition
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'users',
     'pages',
+    'django',
     'crispy_forms',
     "crispy_bootstrap4",
     'articles',
