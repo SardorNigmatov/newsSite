@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-u-x%kxc^s!xc=t^l6morursk5xqs_3b@u#mvx+x##fr&8w4x6f
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['educationonline.uz']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'pages',
     'django',
     'crispy_forms',
-    "crispy_bootstrap4",
+    'crispy_bootstrap4',
     'articles',
 ]
 
@@ -60,7 +60,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'templates')],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -80,10 +80,14 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+   'default': {
+       'ENGINE': 'django.db.backends.postgresql',
+       'NAME': 'postgres',
+       'USER': 'postgres',
+       'PASSWORD': '2123854',
+       'HOST': 'localhost',
+       'PORT': '5432',
+   }
 }
 
 
@@ -122,6 +126,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS = [BASE_DIR / "static"]
 AUTH_USER_MODEL = 'users.CustomUser'
 
 # Default primary key field type
