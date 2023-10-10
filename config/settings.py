@@ -11,10 +11,8 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-from dotenv import load_dotenv
 import os
 
-load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-
+SECRET_KEY = 'django-insecure-as_(icnb#f$pe9se5gcx6f%oh70b*nirl3!&yc0o=it_d!m7&0'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -80,18 +78,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-SECRET_KEY = os.environ.get('SECRET_KEY') #
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': os.environ.get('DB_NAME'), #here
-#         'USER': os.environ.get('DB_USER'), #here
-#         'PASSWORD': os.environ.get('DB_PASS'), #here
-#         'HOST': 'localhost',
-#         'PORT': '5432'
-#     }
-# }
 
 DATABASES = {
     'default': {
@@ -135,7 +122,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-import os
 STATIC_URL = 'static/'
 # STATICFILES_DIRS = [BASE_DIR / "static"]
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
