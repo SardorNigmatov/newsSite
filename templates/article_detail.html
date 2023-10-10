@@ -3,7 +3,7 @@
 {% block content %}
 <div class="article-entry">
     <h2>{{object.title }}</h2>
-    <p>{{ object.author }} | {{object.data}} </p>
+    <p>{{ object.author }} | {{object.date}} </p>
        {% if object.photo %}
     <img src="{{ object.photo.url }}" alt="Bu yerda rasm bor">
     {% endif %}

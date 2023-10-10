@@ -80,16 +80,23 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
+SECRET_KEY = os.environ.get('SECRET_KEY') #
 
-SECRET_KEY = os.environ.get('SECRET_KEY') #here
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': os.environ.get('DB_NAME'), #here
+#         'USER': os.environ.get('DB_USER'), #here
+#         'PASSWORD': os.environ.get('DB_PASS'), #here
+#         'HOST': 'localhost',
+#         'PORT': '5432'
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('DB_NAME'), #here
-        'USER': os.environ.get('DB_USER'), #here
-        'PASSWORD': os.environ.get('DB_PASS'), #here
-        'HOST': 'localhost',
-        'PORT': '5432'
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
@@ -130,8 +137,8 @@ USE_TZ = True
 
 import os
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [BASE_DIR / "static"]
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+# STATICFILES_DIRS = [BASE_DIR / "static"]
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 AUTH_USER_MODEL = 'users.CustomUser'
 
 # Default primary key field type
